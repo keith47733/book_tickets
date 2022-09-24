@@ -5,8 +5,8 @@ import 'package:gap/gap.dart';
 import '../utils/app_layout.dart';
 import '../utils/styles.dart';
 
-class TicketView extends StatelessWidget {
-  const TicketView({super.key});
+class Ticket extends StatelessWidget {
+  const Ticket({super.key});
 
   @override
   Widget build(BuildContext context) {

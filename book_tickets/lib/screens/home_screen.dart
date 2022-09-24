@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../utils/styles.dart';
-import 'ticket_view.dart';
+import 'ticket.dart';
+import 'hotels.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -19,6 +20,7 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 const Gap(40),
+                // Good morning...book tickets......icon
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -44,6 +46,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
                 const Gap(25),
+                // Search bar
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
                   decoration: BoxDecoration(
@@ -64,6 +67,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const Gap(40),
+                // Upcoming flights......view all
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -78,13 +82,43 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const Gap(15),
+          // Horizontal scrolling tickets
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.only(left: 20),
             child: Row(
+              children: const <Widget>[
+                Ticket(),
+                Ticket(),
+              ],
+            ),
+          ),
+          const Gap(15),
+          // Upcoming flights......view all
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TicketView(),
-                TicketView(),
+                Text("Hotels", style: Styles.headline2),
+                InkWell(
+                  onTap: () {},
+                  child: Text("View all", style: Styles.textStyle.copyWith(color: Styles.primaryColor)),
+                ),
+              ],
+            ),
+          ),
+          const Gap(15),
+          // Horizontal scrolling hotels
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(left: 20),
+            child: Row(
+              children: const <Widget>[
+                Hotels(),
+                Hotels(),
+								Hotels(),
+                Hotels(),
               ],
             ),
           ),
