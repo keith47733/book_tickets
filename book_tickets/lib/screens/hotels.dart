@@ -5,7 +5,8 @@ import '../utils/app_layout.dart';
 import '../utils/styles.dart';
 
 class Hotels extends StatelessWidget {
-  const Hotels({super.key});
+  final Map<String, dynamic> hotel;
+  const Hotels({super.key, required this.hotel});
 
   @override
   Widget build(BuildContext context) {
@@ -28,25 +29,22 @@ class Hotels extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12.0),
               color: Styles.primaryColor,
-              image: const DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage('assets/images/one.png'),
-              ),
+              image: DecorationImage(fit: BoxFit.cover, image: AssetImage('assets/images/${hotel['image']}')),
             ),
           ),
           const Gap(10),
           Text(
-            'Open Space',
+            '${hotel['place']}',
             style: Styles.headline2.copyWith(color: Styles.kakiColor),
           ),
           const Gap(5),
           Text(
-            'London',
+            '${hotel['destination']}',
             style: Styles.headline3.copyWith(color: Colors.white),
           ),
           const Gap(8),
           Text(
-            '\$40/night',
+            '\$${hotel['price']}/night',
             style: Styles.headline1.copyWith(color: Styles.kakiColor),
           ),
         ],
