@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:gap/gap.dart';
 
@@ -13,7 +14,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = AppLayout.getSize(context);
+    var width = Get.width;
+    if (width > 400) {
+      width = 400;
+    }
+
     return Scaffold(
       backgroundColor: Styles.bgColor,
       body: SingleChildScrollView(
@@ -30,8 +35,8 @@ class HomeScreen extends StatelessWidget {
             children: <Widget>[
               Gap(Styles.defaultPadding),
               SizedBox(
-                height: size.width * 0.40,
-                width: size.width,
+                height: width * 0.40,
+                width: width,
                 child: Stack(
                   alignment: AlignmentDirectional.center,
                   children: <Widget>[
@@ -50,15 +55,7 @@ class HomeScreen extends StatelessWidget {
                         Text(
                           'FLY BY NIGHT',
                           style: Styles.headline1.copyWith(
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Gap(Styles.defaultPadding),
-                        Text(
-                          'BOOK TICKETS',
-                          style: Styles.headline1.copyWith(
-                            fontSize: 28,
+                            fontSize: 38,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -67,6 +64,8 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              Gap(Styles.defaultPadding),
+              Text('Book Tickets', style: Styles.headline1),
               Gap(Styles.defaultPadding),
               // Search bar
               Container(
@@ -98,7 +97,7 @@ class HomeScreen extends StatelessWidget {
                     onTap: () {},
                     child: Text(
                       'View all',
-                      style: Styles.textDefault,
+                      style: Styles.textDefault.copyWith(color: Styles.accentColor),
                     ),
                   ),
                 ],
@@ -122,7 +121,7 @@ class HomeScreen extends StatelessWidget {
                     onTap: () {},
                     child: Text(
                       'View all',
-                      style: Styles.textDefault,
+                      style: Styles.textDefault.copyWith(color: Styles.accentColor),
                     ),
                   ),
                 ],

@@ -7,12 +7,12 @@ class Styles {
   static Color secondaryColor = Colors.blueGrey;
   static Color accentColor = Colors.orangeAccent;
 
-  static Color topTicketColor = Colors.blueGrey.shade300;
+  static Color topTicketColor = Colors.blueGrey.shade500;
   static Color bottomTicketColor = Colors.blueGrey.shade300;
 
   static Color hotelColor = Colors.blueGrey.shade600;
 
-  static Color searchBackground = Colors.grey.shade200;
+  static Color searchBackground = Colors.grey.shade50;
 
   static Color bottomBarColor = primaryColor;
   static Color bottomBarSelectedColor = Colors.blueGrey.shade900;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 
 import '../utils/app_layout.dart';
 import '../utils/styles.dart';
@@ -10,9 +11,13 @@ class Hotels extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = AppLayout.getSize(context);
+   var width = Get.width;
+    if (width > 400) {
+      width = 400;
+    }
+
     return Container(
-      width: size.width * 0.60,
+      width: width * 0.60,
       margin: EdgeInsets.only(
         right: Styles.defaultPadding,
       ),
@@ -36,7 +41,7 @@ class Hotels extends StatelessWidget {
             ),
           ),
           Gap(Styles.defaultPadding),
-          Text('${hotel['place']}', style: Styles.headline2.copyWith(color: Colors.white, fontWeight: FontWeight.bold)),
+          Text('${hotel['place']}', style: Styles.headline2.copyWith(color: Styles.accentColor, fontWeight: FontWeight.bold)),
           Gap(Styles.defaultPadding),
           Text(
             '${hotel['destination']}',
