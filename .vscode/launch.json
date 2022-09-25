@@ -5,24 +5,39 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "book_tickets",
-            "cwd": "book_tickets",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "book_tickets (profile mode)",
-            "cwd": "book_tickets",
+            "name": "Dart & Flutter",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
-        },
-        {
-            "name": "book_tickets (release mode)",
-            "cwd": "book_tickets",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
+            "program": "lib/main.dart"
         }
     ]
 }
+
+// {
+//     // Use IntelliSense to learn about possible attributes.
+//     // Hover to view descriptions of existing attributes.
+//     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "name": "book_tickets",
+//             "cwd": "book_tickets",
+//             "request": "launch",
+//             "type": "dart"
+//         },
+//         {
+//             "name": "book_tickets (profile mode)",
+//             "cwd": "book_tickets",
+//             "request": "launch",
+//             "type": "dart",
+//             "flutterMode": "profile"
+//         },
+//         {
+//             "name": "book_tickets (release mode)",
+//             "cwd": "book_tickets",
+//             "request": "launch",
+//             "type": "dart",
+//             "flutterMode": "release"
+//         }
+//     ]
+// }
