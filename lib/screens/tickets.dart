@@ -20,7 +20,6 @@ class Tickets extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.only(right: Styles.defaultPadding),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             // Render top blue part of ticket
             Container(
@@ -40,9 +39,10 @@ class Tickets extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(ticket['from']['code'], style: Styles.headline3),
-                      Expanded(child: Container()),
+                      const Expanded(child: SizedBox()),
                       const ThickContainer(),
                       Expanded(
                         child: Stack(
@@ -75,13 +75,12 @@ class Tickets extends StatelessWidget {
                         ),
                       ),
                       const ThickContainer(),
-                      Expanded(child: Container()),
+                      const Expanded(child: SizedBox()),
                       Text(ticket['to']['code'], style: Styles.headline3),
                     ],
                   ),
-                  Gap(Styles.defaultPadding),
+                  Gap(Styles.defaultPadding / 2),
                   Row(
-                    mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(ticket['from']['name'], style: Styles.headline4),
@@ -149,7 +148,7 @@ class Tickets extends StatelessWidget {
                 ],
               ),
             ),
-            // Render bottom orange part of ticket
+            // Render bottom part of ticket
             Container(
               padding: EdgeInsets.fromLTRB(
                 Styles.defaultPadding,
@@ -164,35 +163,32 @@ class Tickets extends StatelessWidget {
                   bottomRight: Radius.circular(Styles.defaultRadius),
                 ),
               ),
-              child: Column(
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(ticket['date'], style: Styles.headline3),
-                          Gap(Styles.defaultPadding),
-                          Text('Date', style: Styles.headline4),
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Text(ticket['departure_time'], style: Styles.headline3),
-                          Gap(Styles.defaultPadding),
-                          Text('Departure Time', style: Styles.headline4),
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: <Widget>[
-                          Text('${ticket['number']}', style: Styles.headline3),
-                          Gap(Styles.defaultPadding),
-                          Text('Number', style: Styles.headline4),
-                        ],
-                      ),
+                      Text(ticket['date'], style: Styles.headline3),
+                      Gap(Styles.defaultPadding / 2),
+                      Text('Date', style: Styles.headline4),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Text(ticket['departure_time'], style: Styles.headline3),
+                      Gap(Styles.defaultPadding / 2),
+                      Text('Departure Time', style: Styles.headline4),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      Text('${ticket['number']}', style: Styles.headline3),
+                      Gap(Styles.defaultPadding / 2),
+                      Text('Number', style: Styles.headline4),
                     ],
                   ),
                 ],

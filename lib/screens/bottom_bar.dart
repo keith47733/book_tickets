@@ -31,13 +31,14 @@ class _BottomBarState extends State<BottomBar> {
     return Scaffold(
       body: Center(child: _widgetOptions[_selectedIndex]),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Styles.bottomBarColor,
         elevation: Styles.defaultPadding,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         showSelectedLabels: true,
         showUnselectedLabels: true,
-        selectedItemColor: Styles.primaryColor,
-        unselectedItemColor: Styles.inactiveColor,
+        selectedItemColor: Styles.bottomBarSelectedColor,
+        unselectedItemColor: Styles.bottomBarInactiveColor,
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(

@@ -43,8 +43,13 @@ class Hotels extends StatelessWidget {
             style: Styles.headline3.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
           ),
           Gap(Styles.defaultPadding / 2),
-          Text('\$${hotel['price']}/night',
-              style: Styles.headline4.copyWith(color: Colors.white, fontWeight: FontWeight.bold)),
+          Text(
+            '\$${hotel['price']}/night',
+            style: Styles.headline4.copyWith(
+              color: Colors.blueGrey.shade900,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ],
       ),
     );
