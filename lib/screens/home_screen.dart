@@ -13,27 +13,26 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Styles.bgColor,
+      backgroundColor: Styles.clrBackgournd,
       // Appbar
       appBar: AppBar(
-        titleTextStyle: const TextStyle(
-          fontFamily: 'Oswald',
-          fontSize: 20,
-          fontWeight: FontWeight.normal,
-        ),
-        backgroundColor: Styles.appBarColor,
+        titleTextStyle: Styles.txtTitle.copyWith(color: Styles.palette1),
+        backgroundColor: Styles.clrAppBarr,
         foregroundColor: Styles.palette0,
         elevation: 5,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             const Text('FLY BY NIGHT'),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(Styles.defaultRadius),
-              child: Image.asset(
-                './assets/images/img_1.png',
-                height: 50,
-                fit: BoxFit.contain,
+            Container(
+              height: 50,
+							width: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(Styles.dfltRadius),
+                image: DecorationImage(
+                  image: const AssetImage('assets/images/img_1.png'),
+                  colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.7), BlendMode.modulate,)
+                ),
               ),
             ),
           ],
@@ -42,44 +41,45 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(
-            Styles.defaultPadding / 2,
-            Styles.defaultPadding,
-            Styles.defaultPadding / 2,
-            Styles.defaultPadding,
+            Styles.dfltPadding / 2,
+            Styles.dfltPadding,
+            Styles.dfltPadding / 2,
+            Styles.dfltPadding,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               // Book flight
               Card(
-                color: Styles.cardColor,
+                color: Styles.clrCardBackground,
                 elevation: Styles.cardElevation,
                 child: Padding(
-                  padding: const EdgeInsets.all(Styles.defaultPadding),
+                  padding: const EdgeInsets.all(Styles.dfltPadding),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text('Destination', style: Styles.txtSubTitle),
-                      const Gap(Styles.defaultPadding),
+                      const Gap(Styles.dfltPadding),
                       // Search bar
                       searchBar(),
                     ],
                   ),
                 ),
               ),
-              const Gap(Styles.defaultPadding),
+              const Gap(Styles.dfltPadding),
 
               // Upcoming flights......view all
               Card(
-                color: Styles.cardColor,
+                color: Styles.clrCardBackground,
                 elevation: Styles.cardElevation,
                 child: Padding(
-                  padding: const EdgeInsets.all(Styles.defaultPadding),
+                  padding: const EdgeInsets.all(Styles.dfltPadding),
                   child: Column(
                     children: <Widget>[
-                      subTitle('Flights', 'View All'),
-                      const Gap(Styles.defaultPadding),
+                      subTitle('Flights', 'View all'),
+                      const Gap(Styles.dfltPadding),
+
                       // Horizontal scrolling tickets
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
@@ -91,18 +91,18 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const Gap(Styles.defaultPadding),
+              const Gap(Styles.dfltPadding),
 
               // Hotels......view all
               Card(
-                color: Styles.cardColor,
+                color: Styles.clrCardBackground,
                 elevation: Styles.cardElevation,
                 child: Padding(
-                  padding: const EdgeInsets.all(Styles.defaultPadding),
+                  padding: const EdgeInsets.all(Styles.dfltPadding),
                   child: Column(
                     children: <Widget>[
                       subTitle('Hotels', 'View all'),
-                      const Gap(Styles.defaultPadding),
+                      const Gap(Styles.dfltPadding),
                       // Horizontal scrolling hotels
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
@@ -114,6 +114,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
+							
               // Close out Scaffold
             ],
           ),
@@ -124,16 +125,16 @@ class HomeScreen extends StatelessWidget {
 
   Widget searchBar() {
     return Container(
-      padding: const EdgeInsets.all(Styles.defaultPadding / 2),
+      padding: const EdgeInsets.all(Styles.dfltPadding / 2),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(Styles.defaultRadius * 1.5),
-        color: Styles.searchBarBackground,
+        borderRadius: BorderRadius.circular(Styles.dfltRadius * 1.5),
+        color: Styles.clrSearchBarBackground,
       ),
       child: Row(
         children: <Widget>[
           Icon(
             FluentSystemIcons.ic_fluent_search_regular,
-            color: Styles.searchBarIcon,
+            color: Styles.clrSearchBarIcon,
           ),
           Text(
             '   Search',
@@ -144,31 +145,27 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget subTitle(String subTitle, String buttonText) {
+  Widget subTitle(String subTitle, String btnText) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Text(subTitle, style: Styles.txtSubTitle),
-        viewAllButton(buttonText),
-      ],
-    );
-  }
-
-  Widget viewAllButton(String buttonText) {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Styles.palette2,
-        foregroundColor: Styles.palette1,
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(32.0),
+        ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Styles.palette2,
+            foregroundColor: Styles.palette1,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(32.0),
+            ),
+          ),
+          child: Text(
+            btnText,
+            style: Styles.txtViewAllButton,
+          ),
         ),
-      ),
-      child: Text(
-        buttonText,
-        style: Styles.txtViewAll,
-      ),
+      ],
     );
   }
 }

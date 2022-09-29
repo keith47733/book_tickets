@@ -15,9 +15,9 @@ class _BottomBarState extends State<BottomBar> {
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
-    Text('SEARCH', style: Styles.txtTitle),
-    Text('TICKETS', style: Styles.txtTitle),
-    Text('PROFILE', style: Styles.txtTitle),
+    Text('Search', style: Styles.txtTitle),
+    Text('Tickets', style: Styles.txtTitle),
+    Text('Profile', style: Styles.txtTitle),
   ];
 
   void _onItemTapped(int index) {
@@ -31,14 +31,14 @@ class _BottomBarState extends State<BottomBar> {
     return Scaffold(
       body: Center(child: _widgetOptions[_selectedIndex]),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Styles.bottomBarColor,
-        elevation: Styles.defaultPadding,
+        backgroundColor: Styles.clrBottomBarBackground,
+        elevation: Styles.dfltPadding,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         showSelectedLabels: true,
         showUnselectedLabels: true,
-        selectedItemColor: Styles.bottomBarSelectedColor,
-        unselectedItemColor: Styles.bottomBarInactiveColor,
+        selectedItemColor: Styles.clrBottomBarSelected,
+        unselectedItemColor: Styles.clrBottomBarInactive,
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
