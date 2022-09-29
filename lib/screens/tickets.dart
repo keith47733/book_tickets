@@ -19,15 +19,15 @@ class Tickets extends StatelessWidget {
     }
 
     return SizedBox(
-      width: width * 0.85,
+      width: width * 0.75,
       //height: AppLayout.getHeight(200),
       child: Container(
-        margin: EdgeInsets.only(right: Styles.defaultPadding),
+        margin: const EdgeInsets.only(right: Styles.defaultPadding),
         child: Column(
           children: <Widget>[
             // Render top blue part of ticket
             Container(
-              padding: EdgeInsets.fromLTRB(
+              padding: const EdgeInsets.fromLTRB(
                 Styles.defaultPadding,
                 Styles.defaultPadding,
                 Styles.defaultPadding,
@@ -35,7 +35,7 @@ class Tickets extends StatelessWidget {
               ),
               decoration: BoxDecoration(
                 color: Styles.topTicketColor,
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(Styles.defaultRadius),
                   topRight: Radius.circular(Styles.defaultRadius),
                 ),
@@ -47,10 +47,7 @@ class Tickets extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         ticket['from']['code'],
-                        style: Styles.headline3.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: Styles.accentColor,
-                        ),
+                        style: Styles.txtTicketTitle,
                       ),
                       const Expanded(child: SizedBox()),
                       const ThickContainer(),
@@ -66,11 +63,11 @@ class Tickets extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     mainAxisSize: MainAxisSize.max,
                                     children: List.generate(
-                                      (constraints.constrainWidth() / 8).floor(),
+                                      (constraints.constrainWidth() / 7).floor(),
                                       (index) => Container(
-                                        width: 5,
-                                        height: 2,
-                                        color: Styles.accentColor,
+                                        width: 4,
+                                        height: 1,
+                                        color: Styles.ticketGraphic,
                                       ),
                                     ),
                                   );
@@ -80,9 +77,9 @@ class Tickets extends StatelessWidget {
                             Center(
                               child: Transform.rotate(
                                 angle: 1.5,
-                                child: const Icon(
+                                child: Icon(
                                   Icons.local_airport_rounded,
-                                  color: Colors.orangeAccent,
+                                  color: Styles.ticketGraphic,
                                 ),
                               ),
                             ),
@@ -93,20 +90,17 @@ class Tickets extends StatelessWidget {
                       const Expanded(child: SizedBox()),
                       Text(
                         ticket['to']['code'],
-                        style: Styles.headline3.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: Styles.accentColor,
-                        ),
+                        style: Styles.txtTicketTitle,
                       ),
                     ],
                   ),
-                  Gap(Styles.defaultPadding / 2),
+                  const Gap(Styles.defaultPadding / 2),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text(ticket['from']['name'], style: Styles.headline4),
-                      Text(ticket['flying_time'], style: Styles.headline4),
-                      Text(ticket['to']['name'], style: Styles.headline4),
+                      Text(ticket['from']['name'], style: Styles.txtTicketData),
+                      Text(ticket['flying_time'], style: Styles.txtTicketData),
+                      Text(ticket['to']['name'], style: Styles.txtTicketData),
                     ],
                   ),
                 ],
@@ -123,8 +117,8 @@ class Tickets extends StatelessWidget {
                     width: Styles.defaultPadding * 1,
                     child: DecoratedBox(
                       decoration: BoxDecoration(
-                        color: Styles.bgColor,
-                        borderRadius: BorderRadius.only(
+                        color: Styles.cardColor,
+                        borderRadius: const BorderRadius.only(
                           topRight: Radius.circular(Styles.defaultPadding * 1.5),
                           bottomRight: Radius.circular(Styles.defaultPadding * 1.5),
                         ),
@@ -133,7 +127,7 @@ class Tickets extends StatelessWidget {
                   ),
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.all(Styles.defaultPadding),
+                      padding: const EdgeInsets.all(Styles.defaultPadding),
                       child: LayoutBuilder(
                         builder: (BuildContext context, BoxConstraints constraints) {
                           return Flex(
@@ -141,11 +135,11 @@ class Tickets extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             mainAxisSize: MainAxisSize.max,
                             children: List.generate(
-                              (constraints.constrainWidth() / 15).floor(),
+                              (constraints.constrainWidth() / 12).floor(),
                               (index) => Container(
                                 width: 5,
                                 height: 2,
-                                color: Colors.white,
+                                color: Styles.ticketGraphic,
                               ),
                             ),
                           );
@@ -158,8 +152,8 @@ class Tickets extends StatelessWidget {
                     width: Styles.defaultPadding * 1,
                     child: DecoratedBox(
                       decoration: BoxDecoration(
-                        color: Styles.bgColor,
-                        borderRadius: BorderRadius.only(
+                        color: Styles.cardColor,
+                        borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(Styles.defaultPadding * 1.5),
                           bottomLeft: Radius.circular(Styles.defaultPadding * 1.5),
                         ),
@@ -171,7 +165,7 @@ class Tickets extends StatelessWidget {
             ),
             // Render bottom part of ticket
             Container(
-              padding: EdgeInsets.fromLTRB(
+              padding: const EdgeInsets.fromLTRB(
                 Styles.defaultPadding,
                 0,
                 Styles.defaultPadding,
@@ -179,7 +173,7 @@ class Tickets extends StatelessWidget {
               ),
               decoration: BoxDecoration(
                 color: Styles.bottomTicketColor,
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(Styles.defaultRadius),
                   bottomRight: Radius.circular(Styles.defaultRadius),
                 ),
@@ -191,43 +185,40 @@ class Tickets extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
+                      Text('Date', style: Styles.txtTicketTitle),
+                      const Gap(Styles.defaultPadding / 2),
                       Text(
                         ticket['date'],
-                        style: Styles.headline3.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: Styles.accentColor,
-                        ),
+                        style: Styles.txtTicketData,
                       ),
-                      Gap(Styles.defaultPadding / 2),
-                      Text('Date', style: Styles.headline4),
                     ],
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        ticket['departure_time'],
-                        style: Styles.headline3.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: Styles.accentColor,
-                        ),
+                        'Departure Time',
+                        style: Styles.txtTicketTitle,
                       ),
-                      Gap(Styles.defaultPadding / 2),
-                      Text('Departure Time', style: Styles.headline4),
+                      const Gap(Styles.defaultPadding / 2),
+                      Text(
+                        ticket['departure_time'],
+                        style: Styles.txtTicketData,
+                      ),
                     ],
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
                       Text(
-                        '${ticket['number']}',
-                        style: Styles.headline3.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: Styles.accentColor,
-                        ),
+                        'Number',
+                        style: Styles.txtTicketTitle,
                       ),
-                      Gap(Styles.defaultPadding / 2),
-                      Text('Number', style: Styles.headline4),
+                      const Gap(Styles.defaultPadding / 2),
+                      Text(
+                        '${ticket['number']}',
+                        style: Styles.txtTicketData,
+                      ),
                     ],
                   ),
                 ],

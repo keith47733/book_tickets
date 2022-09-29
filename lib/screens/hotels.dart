@@ -11,17 +11,17 @@ class Hotels extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   var width = Get.width;
+    var width = Get.width;
     if (width > 400) {
       width = 400;
     }
 
     return Container(
       width: width * 0.60,
-      margin: EdgeInsets.only(
+      margin: const EdgeInsets.only(
         right: Styles.defaultPadding,
       ),
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: Styles.defaultPadding,
         vertical: Styles.defaultPadding,
       ),
@@ -40,20 +40,17 @@ class Hotels extends StatelessWidget {
               image: DecorationImage(fit: BoxFit.cover, image: AssetImage('assets/images/${hotel['image']}')),
             ),
           ),
-          Gap(Styles.defaultPadding),
-          Text('${hotel['place']}', style: Styles.headline2.copyWith(color: Styles.accentColor, fontWeight: FontWeight.bold)),
-          Gap(Styles.defaultPadding),
+          const Gap(Styles.defaultPadding),
+          Text('${hotel['place']}', style: Styles.txtHotelTitle),
+          const Gap(Styles.defaultPadding),
           Text(
             '${hotel['destination']}',
-            style: Styles.headline3.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+            style: Styles.txtHotelSubTitle,
           ),
-          Gap(Styles.defaultPadding / 2),
+          const Gap(Styles.defaultPadding / 2),
           Text(
             '\$${hotel['price']}/night',
-            style: Styles.headline4.copyWith(
-              color: Colors.blueGrey.shade900,
-              fontWeight: FontWeight.bold,
-            ),
+            style: Styles.txtHotelPrice,
           ),
         ],
       ),

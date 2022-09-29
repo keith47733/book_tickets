@@ -91,11 +91,18 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   fonts:
-    - family: Comfortaa
+    - family: Oswald
       fonts:
-        - asset: assets/fonts/Comfortaa-Regular.ttf
+        - asset: assets/fonts/oswald/Oswald-Regular.ttf
           weight: 300
-        - asset: assets/fonts/Comfortaa-Bold.ttf
+        - asset: assets/fonts/oswald/Oswald-Bold.ttf
+          weight: 600
+          
+    - family: SourceSansPro
+      fonts:
+        - asset: assets/fonts/source_sans_pro/SourceSansPro-Regular.ttf
+          weight: 300
+        - asset: assets/fonts/source_sans_pro/SourceSansPro-Bold.ttf
           weight: 600
   #
   # For details regarding fonts from package dependencies,

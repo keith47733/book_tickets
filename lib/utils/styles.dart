@@ -1,58 +1,94 @@
 import 'package:flutter/material.dart';
 
 class Styles {
-  static Color bgColor = Colors.grey.shade200;
+  static Color _hexToColor(String code) {
+    return Color(int.parse(code.substring(0, 6), radix: 16) + 0xFF000000);
+  }
 
-  static Color primaryColor = Colors.blue;
-  static Color secondaryColor = Colors.blueGrey;
-  static Color accentColor = Colors.orangeAccent;
+  static final Color palette0 = _hexToColor('f8f2eb');
+  static final Color palette1 = _hexToColor('F3E9DD');
+  static final Color palette2 = _hexToColor('FDF6EC');
+  static final Color palette3 = _hexToColor('B7CADB');
+  static final Color palette4 = _hexToColor('DAB88B');
 
-  static Color topTicketColor = Colors.blueGrey.shade500;
-  static Color bottomTicketColor = Colors.blueGrey.shade300;
+  static final Color bgColor = palette0;
 
-  static Color hotelColor = Colors.blueGrey.shade600;
+  static final Color appBarColor = palette4;
 
-  static Color searchBackground = Colors.grey.shade50;
+  static const double defaultPadding = 16.0;
+  static const double defaultRadius = 16.0;
 
-  static Color bottomBarColor = primaryColor;
-  static Color bottomBarSelectedColor = Colors.blueGrey.shade900;
-  static Color bottomBarInactiveColor = Colors.white;
+  static const double cardElevation = 5.0;
+  static final Color cardColor = palette1;
 
-  static Color textColor1 = Colors.blueGrey.shade800;
-  static Color textColor2 = Colors.blueGrey;
-  static Color textColor3 = Colors.grey;
-  static Color textColor4 = Colors.white;
-
-  static double defaultPadding = 20;
-  static double defaultRadius = 16;
-
-  static TextStyle textDefault = TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.w500,
-    color: textColor2,
-  );
-
-  static TextStyle headline1 = TextStyle(
-    fontSize: 24,
-    fontWeight: FontWeight.normal,
-    color: textColor1,
-  );
-
-  static TextStyle headline2 = TextStyle(
+  static TextStyle txtTitle = TextStyle(
+    fontFamily: 'Oswald',
     fontSize: 22,
-    fontWeight: FontWeight.bold,
-    color: textColor2,
+    fontWeight: FontWeight.normal,
+    color: palette4,
   );
 
-  static TextStyle headline3 = TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.w500,
-    color: textColor4,
+  static TextStyle txtSubTitle = TextStyle(
+    fontFamily: 'Oswald',
+    fontSize: 20,
+    fontWeight: FontWeight.normal,
+    color: palette4,
   );
 
-  static TextStyle headline4 = TextStyle(
+  static final Color buttonColor = palette2;
+  static TextStyle txtViewAll = TextStyle(
+    fontFamily: 'SourceSansPro',
     fontSize: 16,
-    fontWeight: FontWeight.w500,
-    color: textColor4,
+    fontWeight: FontWeight.normal,
+    color: palette4,
   );
+
+  static final Color searchBarBackground = palette2;
+  static final Color searchBarIcon = palette4;
+  static TextStyle txtSearchBar = TextStyle(
+    fontFamily: 'SourceSansPro',
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+    color: palette4,
+  );
+
+  static final Color topTicketColor = palette3;
+  static final Color bottomTicketColor = palette3;
+  static final Color ticketGraphic = palette1;
+  static TextStyle txtTicketTitle = TextStyle(
+    fontFamily: 'SourceSansPro',
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: palette1,
+  );
+  static TextStyle txtTicketData = TextStyle(
+    fontFamily: 'SourceSansPro',
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+    color: palette1,
+  );
+
+  static final Color hotelColor = palette3;
+  static TextStyle txtHotelTitle = TextStyle(
+    fontFamily: 'Oswald',
+    fontSize: 18,
+    fontWeight: FontWeight.normal,
+    color: palette2,
+  );
+  static TextStyle txtHotelSubTitle = TextStyle(
+    fontFamily: 'SourceSansPro',
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+    color: palette2,
+  );
+  static TextStyle txtHotelPrice = TextStyle(
+    fontFamily: 'SourceSansPro',
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    color: palette1,
+  );
+
+  static final Color bottomBarColor = palette4;
+  static final Color bottomBarSelectedColor = palette0;
+  static final Color bottomBarInactiveColor = palette1;
 }

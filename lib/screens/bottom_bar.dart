@@ -15,9 +15,9 @@ class _BottomBarState extends State<BottomBar> {
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
-    Text('Search', style: Styles.headline1),
-    Text('Tickets', style: Styles.headline1),
-    Text('Profile', style: Styles.headline1),
+    Text('SEARCH', style: Styles.txtTitle),
+    Text('TICKETS', style: Styles.txtTitle),
+    Text('PROFILE', style: Styles.txtTitle),
   ];
 
   void _onItemTapped(int index) {
