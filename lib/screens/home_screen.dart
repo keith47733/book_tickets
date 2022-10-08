@@ -14,108 +14,177 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Styles.clrBackgournd,
+
       // Appbar
       appBar: AppBar(
         titleTextStyle: Styles.txtTitle.copyWith(color: Styles.palette1),
         backgroundColor: Styles.clrAppBarr,
-        foregroundColor: Styles.palette0,
+        foregroundColor: Styles.lighten(Styles.palette4, 80),
         elevation: 5,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             const Text('FLY BY NIGHT'),
             Container(
-              height: 50,
-							width: 50,
+              height: 40,
+              width: 40,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Styles.dfltRadius),
+                borderRadius: BorderRadius.circular(Styles.dfltRadius / 1.5),
                 image: DecorationImage(
-                  image: const AssetImage('assets/images/img_1.png'),
-                  colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.7), BlendMode.modulate,)
-                ),
+                    image: const AssetImage('assets/images/img_1.png'),
+                    colorFilter: ColorFilter.mode(
+                      Colors.white.withOpacity(0.7),
+                      BlendMode.modulate,
+                    )),
               ),
             ),
           ],
         ),
       ),
+
+      // Main column
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(
             Styles.dfltPadding / 2,
             Styles.dfltPadding,
             Styles.dfltPadding / 2,
-            Styles.dfltPadding,
+            Styles.dfltPadding / 2,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              // Book flight
-              Card(
-                color: Styles.clrCardBackground,
-                elevation: Styles.cardElevation,
-                child: Padding(
-                  padding: const EdgeInsets.all(Styles.dfltPadding),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text('Destination', style: Styles.txtSubTitle),
-                      const Gap(Styles.dfltPadding),
-                      // Search bar
-                      searchBar(),
-                    ],
+              // Destination card
+              Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  0,
+                  Styles.dfltPadding / 4,
+                  0,
+                  Styles.dfltPadding / 2,
+                ),
+                child: Card(
+                  color: Styles.clrCardBackground,
+                  elevation: Styles.cardElevation,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(Styles.dfltRadius / 2),
+                  ),
+                  // Destination text
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(
+                      Styles.dfltPadding,
+                      Styles.dfltPadding / 2,
+                      Styles.dfltPadding,
+                      Styles.dfltPadding,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text('Destination', style: Styles.txtSubTitle),
+                        const Gap(Styles.dfltPadding),
+                        // Search bar
+                        searchBar(),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              const Gap(Styles.dfltPadding),
 
-              // Upcoming flights......view all
-              Card(
-                color: Styles.clrCardBackground,
-                elevation: Styles.cardElevation,
-                child: Padding(
-                  padding: const EdgeInsets.all(Styles.dfltPadding),
+              // Flights card
+              Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  0,
+                  Styles.dfltPadding / 2,
+                  0,
+                  Styles.dfltPadding / 2,
+                ),
+                child: Card(
+                  color: Styles.clrCardBackground,
+                  elevation: Styles.cardElevation,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(Styles.dfltRadius / 2),
+                  ),
                   child: Column(
-                    children: <Widget>[
-                      subTitle('Flights', 'View all'),
-                      const Gap(Styles.dfltPadding),
-
+                    children: [
+                      // Flights ... view all text
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(
+                          Styles.dfltPadding,
+                          Styles.dfltPadding / 2,
+                          Styles.dfltPadding,
+                          Styles.dfltPadding / 2,
+                        ),
+                        child: SizedBox(child: subTitle('Flights', 'View all')),
+                      ),
+											
                       // Horizontal scrolling tickets
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: ticketList.map((singleTicket) => Tickets(ticket: singleTicket)).toList(),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(
+                          Styles.dfltPadding / 4,
+                          Styles.dfltPadding / 2,
+                          Styles.dfltPadding / 4,
+                          Styles.dfltPadding * 1.5,
+                        ),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: ticketList.map((singleTicket) => Tickets(ticket: singleTicket)).toList(),
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
               ),
-              const Gap(Styles.dfltPadding),
 
-              // Hotels......view all
-              Card(
-                color: Styles.clrCardBackground,
-                elevation: Styles.cardElevation,
-                child: Padding(
-                  padding: const EdgeInsets.all(Styles.dfltPadding),
+              // Hotels card
+              Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  0,
+                  Styles.dfltPadding / 2,
+                  0,
+                  Styles.dfltPadding / 2,
+                ),
+                child: Card(
+                  color: Styles.clrCardBackground,
+                  elevation: Styles.cardElevation,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(Styles.dfltRadius / 2),
+                  ),
+
+                  // Hotels ... view all text
                   child: Column(
-                    children: <Widget>[
-                      subTitle('Hotels', 'View all'),
-                      const Gap(Styles.dfltPadding),
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(
+                          Styles.dfltPadding,
+                          Styles.dfltPadding / 2,
+                          Styles.dfltPadding,
+                          Styles.dfltPadding / 2,
+                        ),
+                        child: SizedBox(child: subTitle('Hotels', 'View all')),
+                      ),
                       // Horizontal scrolling hotels
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: hotelList.map((singleHotel) => Hotels(hotel: singleHotel)).toList(),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(
+                          Styles.dfltPadding / 4,
+                          Styles.dfltPadding / 2,
+                          Styles.dfltPadding / 4,
+                          Styles.dfltPadding * 1.5,
+                        ),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: hotelList.map((singleHotel) => Hotels(hotel: singleHotel)).toList(),
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
               ),
-							
-              // Close out Scaffold
+
+              // Close main column and scaffold
             ],
           ),
         ),
@@ -153,8 +222,8 @@ class HomeScreen extends StatelessWidget {
         ElevatedButton(
           onPressed: () {},
           style: ElevatedButton.styleFrom(
-            backgroundColor: Styles.palette2,
-            foregroundColor: Styles.palette1,
+            backgroundColor: Styles.btnButtonBackground,
+            //foregroundColor: Styles.palette1,
             elevation: 0,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(32.0),

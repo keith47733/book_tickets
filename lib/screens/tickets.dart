@@ -20,7 +20,6 @@ class Tickets extends StatelessWidget {
 
     return SizedBox(
       width: width * 0.80,
-      //height: AppLayout.getHeight(200),
       child: Container(
         margin: const EdgeInsets.only(right: Styles.dfltPadding),
         child: Column(

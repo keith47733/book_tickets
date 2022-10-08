@@ -11,11 +11,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Book Tickets',
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      //theme: ThemeData(fontFamily: 'Oswald'),
-      home: BottomBar(),
+      title: 'Book Tickets',
+      theme: ThemeData(fontFamily: 'Oswald'),
+      home: const BottomBar(),
     );
   }
 }
