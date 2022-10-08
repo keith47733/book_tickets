@@ -17,9 +17,8 @@ class HomeScreen extends StatelessWidget {
 
       // Appbar
       appBar: AppBar(
-        titleTextStyle: Styles.txtTitle.copyWith(color: Styles.palette1),
-        backgroundColor: Styles.clrAppBarr,
-        foregroundColor: Styles.lighten(Styles.palette4, 80),
+        titleTextStyle: Styles.txtTitle.copyWith(color: Styles.darken(Styles.palette4, 60)),
+        backgroundColor: Styles.clrAppBarrBackground,
         elevation: 5,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -33,7 +32,7 @@ class HomeScreen extends StatelessWidget {
                 image: DecorationImage(
                     image: const AssetImage('assets/images/img_1.png'),
                     colorFilter: ColorFilter.mode(
-                      Colors.white.withOpacity(0.7),
+                      Colors.white.withOpacity(0.85),
                       BlendMode.modulate,
                     )),
               ),

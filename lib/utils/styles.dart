@@ -29,31 +29,32 @@ class Styles {
   static const double dfltPadding = 16.0;
   static const double dfltRadius = 16.0;
 
-  static final Color clrBackgournd = lighten(palette1, 80);
+  static final Color clrBackgournd = lighten(palette1, 60);
 
-  static final Color clrAppBarr = palette4;
+  static final Color clrAppBarrBackground = palette4;
+  static final Color clrAppBarForeground = darken(palette4, 50);
 
   static const double cardElevation = 5.0;
-  static final Color clrCardBackground = lighten(palette1, 30);
+  static final Color clrCardBackground = lighten(palette4, 50);
 
   static TextStyle txtTitle = TextStyle(
     fontFamily: 'Oswald',
     fontSize: fontSizeLarge + 2,
     fontWeight: FontWeight.normal,
-    color: palette4,
+    color: darken(palette4, 60),
   );
 
   static TextStyle txtSubTitle = TextStyle(
     fontFamily: 'Oswald',
     fontSize: fontSizeLarge,
     fontWeight: FontWeight.normal,
-    color: palette4,
+    color: darken(palette4, 40),
   );
 
   static final Color btnButtonBackground = lighten(palette1, 80);
   static TextStyle txtViewAllButton = TextStyle(
     fontFamily: 'SourceSansPro',
-    fontSize: fontSizeSmall,
+    fontSize: fontSizeSmall * 0.80,
     fontWeight: FontWeight.normal,
     color: palette4,
   );
@@ -89,7 +90,7 @@ class Styles {
     fontFamily: 'Oswald',
     fontSize: fontSizeLarge,
     fontWeight: FontWeight.normal,
-    color: lighten(palette2, 40),
+    color: lighten(palette2, 20),
   );
   static TextStyle txtHotelSubTitle = TextStyle(
     fontFamily: 'Oswald',
@@ -105,6 +106,6 @@ class Styles {
   );
 
   static final Color clrBottomBarBackground = palette4;
-  static final Color clrBottomBarSelected = palette1;
+  static final Color clrBottomBarSelected = darken(palette4, 50);
   static final Color clrBottomBarInactive = palette2;
 }
